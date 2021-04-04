@@ -1,7 +1,7 @@
 # Resources
 
 - [Vex](https://github.com/ribponce/particula/tree/master/vex) – Compilation of handy wrangle setups that I collect along the way, interesting tips and also sample scene files.
-- [Vops](https://github.com/ribponce/particula/tree/master/vops) - Visual scripting context inside Houdini. Here we will collect setups that rely mostly or exclusively on solving problems through Vex OPerators and other general things related to them.
+- [Vops](https://github.com/ribponce/particula/tree/master/vops) - Visual scripting context inside Houdini. Here we will collect setups that rely mostly or exclusively on solving problems through **V**ex **OP**erators and other general things related to them.
 
 ## References / Tutorials / Webinars / Talks / Blogs
 
