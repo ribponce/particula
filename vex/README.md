@@ -1,4 +1,4 @@
-![SideFX’s VEX Functions Reference](http://www.sidefx.com/docs/houdini/vex/functions/index.html)
+[SideFX’s VEX Functions Reference](http://www.sidefx.com/docs/houdini/vex/functions/index.html)
 
 # Falloff from points
 
