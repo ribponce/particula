@@ -2,7 +2,7 @@
 
 I was wondering for a while simple ways on how to generate roots or veins structures that possibly didn’t rely on solvers. There is a very interesting node in Houdini called FindShortestPath which will basically search for the most optimal path between one or multiple start and end points on a given mesh.
 
-This is a rather simple setup, but I wanted to share it nonetheless. If you’re interested in these kind of growth effects, check out the amazing work of Richard Lord, which was quite an inspiration for these explorations of my own.
+This is a rather simple setup, but I wanted to share it nonetheless. If you’re interested in these kind of growth effects, check out the amazing work of [Richard Lord](https://www.richlord.com/), which was quite an inspiration for these explorations of my own.
 
 The challenge here was to have interesting meshes to let the node onto run in the first place. Depending on your topology you can achieve different results. By having a geometry composed of quads, it’s easy to generate interconnected grids, or even”pipe-like” structures. But my goal was to achieve a more organic look.
 
