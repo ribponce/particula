@@ -1,6 +1,6 @@
 Landing page for long-form tutorials/write-ups/walkthroughs of some more specific subjects.
 
-All of these have their own Youtube videos that I'd also recommend watching.
+Some of these have their own Youtube videos that I'd also recommend watching.
 
 ---
 
