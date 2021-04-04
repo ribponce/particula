@@ -2,15 +2,12 @@
 
 - ![Vex](https://github.com/ribponce/particula/tree/master/vex) – Compilation of handy wrangle setups that I collect along the way, interesting tips and also sample scene files.
 
-Below you will find a list of really good external resources that I find myself visiting all the time.
-
-
 ## References
 
-    SideFX’s VEX Functions Reference – My home page, gotta check those arguments all the time.
-    cgwiki – Matt Estela’s bible. Arguably the best user-made Houdini resources page, and a huge inspiration as well.
-    odforce – this is probably the best 3rd party Houdini-related forum and where the incredible wizards hang around. SideFX’s own hub also has some amazing discussions.
-    jtomori – Amazing vex page reference. Even offers a library containing all of his examples for download. I’d recommend only jumping in here if you’re already more or less familiarized with the vex.
+- ![SideFX’s VEX Functions Reference](http://www.sidefx.com/docs/houdini/vex/functions/index.html) – My home page, gotta check those arguments all the time.
+- ![cgwiki](http://www.tokeru.com/cgwiki/index.php?title=Houdini) – Matt Estela’s bible. Arguably the best user-made Houdini resources page, and a huge inspiration as well.
+- ![odforce](https://forums.odforce.net/) – this is probably the best 3rd party Houdini-related forum and where the incredible wizards hang around. SideFX’s own hub also has some amazing discussions.
+- ![jtomori](https://github.com/jtomori/vex_tutorial) – Amazing vex page reference. Even offers a library containing all of his examples for download. I’d recommend only jumping in here if you’re already more or less familiarized with the vex.
 
 ## Tutorials / Webinars / Talks / Blogs
 
