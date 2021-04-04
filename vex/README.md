@@ -102,3 +102,28 @@ In this case we are simply using the iteration number as ‘step’ for both ope
 ![draping-cables](https://user-images.githubusercontent.com/81909946/113509724-71de0080-9557-11eb-80c9-9553d4af4917.gif)
 
 [Download example scene file.](https://github.com/ribponce/particula/blob/b4aa077ec8c758d0b0d386931ac16a4f25ca3a1f/vex/files/particula_draping-cables_SHARE.hipnc)
+
+# Growing Spirals
+
+It’s good practice to declare your variables beforehand whenever you can. However, some variables being used inside a loop should be declared from within the loop, in case we might want to perform operations with i at every iteration. It depends on what we are trying to achieve. This is a nice example because it has both.
+
+It’s easy to understand if you break it down. A clever technique is to seek for the functions that are actually ‘doing’ something, and investigate backwards where their arguments are being referenced from and what are they exactly computing. For example, in this case we are basically creating points and connecting them with a line, each with the last one; you can spot both addpoint() and addprim() really easily. The second argument for adding a point is also a function, where we set() a position vector for each iteration of our loop. You see that our angle variable is being multiplied by i, so there is definitely going to be some sort of incremental procedure happening.
+
+```c#
+int count = chi("count");
+int div = chi("div");
+
+for(int i=0; i <= count; i++){
+    float radius = i * ch("radmult");
+    float d = 360.0 / div;
+    float angle = radians(d*i);
+    
+    int pt = addpoint(0, set(radius * cos(angle), 0, radius * sin(angle)));
+    addprim(0, "polyline", pt, pt-1);
+}
+```
+
+The snippet above runs in detail mode, and only creates a spiraling line with some controls after promoting the channel parameters. There is a second wrangle that adds some displacement to the lines based on their position; it’s a simple anoise() function, which creates a our beloved alligator pattern. If I’m being honest, in most of the cases where I want to use any sort of noise I’ll choose VOPs over vex wrangles for the convenience and overall better control,  but these functions definitely have their value in this context as well.
+
+![falloff-from-particles](https://user-images.githubusercontent.com/81909946/113510427-1877d080-955b-11eb-8dd5-aab2681a5df9.gif)
+
