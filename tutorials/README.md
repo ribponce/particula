@@ -1,12 +1,12 @@
 ### [Interactive Python States](https://github.com/ribponce/particula/tree/master/tutorials/interactive_python_states)
 
-## Procedural Scatter
+### Procedural Scatter
 
-## Shortest Paths
+### Shortest Paths
 
-## Procedural Modules
+### Procedural Modules
 
-## Recursive Voronoi
+### Recursive Voronoi
 
-## Unconventional k-d tree partitioning algorithm
+### Unconventional k-d tree partitioning algorithm
 
