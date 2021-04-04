@@ -24,6 +24,12 @@ I was wondering for a while simple ways on how to generate roots or veins struct
 
 # Procedural Modules
 
+[![Procedural Modules](https://user-images.githubusercontent.com/81909946/113516152-060c8f80-9579-11eb-9f09-cebf2c3732a4.jpg)](https://github.com/ribponce/particula/tree/master/tutorials/procedural_modules)
+
+Being able to copy any number of primitives from a selected pool to n points efficiently is something that comes up really often. Of course there are many ways of tackling any given problem, but this approach gives us the ability to further implement other core concepts that end up being essential for developing realistic modules.
+
+[Read More](https://github.com/ribponce/particula/tree/master/tutorials/procedural_modules)
+
 # Recursive Voronoi
 
 [![Recursive Voronoi](https://user-images.githubusercontent.com/81909946/113515923-ae215900-9577-11eb-9eab-8b181402a291.jpg)](https://github.com/ribponce/particula/tree/master/tutorials/recursive_voronoi)
