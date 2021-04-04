@@ -1,6 +1,6 @@
-# Interactive Python States
+[# Interactive Python States](https://www.youtube.com/watch?v=DTReVsTmKNY)
 
-[See on Youtube](https://youtu.be/DTReVsTmKNY)
+[See on Youtube](https://www.youtube.com/watch?v=DTReVsTmKNY)
 
 In this tutorial we take a look at python viewer states inside Houdini 18, and how its practicality can help technical artists develop interactive, easy-to-use tools for fast and smart content creation.
 
