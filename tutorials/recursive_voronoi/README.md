@@ -1,6 +1,6 @@
 # Recursive Voronoi
 
-![See on Youtube](https://user-images.githubusercontent.com/81909946/113515757-baf17d00-9576-11eb-851a-f6eac9067e61.jpg)
+[See on Youtube](https://youtu.be/Ko68LMPsBE0)
 
 Welcome! In this quick video I walk you through this simple setup where we wrap a fracturing procedure inside a loop to have it repeat countless times. There are a few interesting bits on how to work with for-each and for loops, and I hope you can learn something from it.
 
