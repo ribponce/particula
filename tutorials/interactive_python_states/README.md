@@ -40,7 +40,7 @@ There isn’t currently a procedural system in place for module placement of the
 
 That’s pretty much it, I appreciate if you read it this far.
 
-Apart from being able to download the .hip file here, the python code for the click-extrude-tool is also pasted below, just for the sake of having it available online without the need of downloading it. Keep in mind that if copied to a new HDA, the parameters used must match or be replaced accordingly.
+Apart from being able to [download the .hip file here](https://github.com/ribponce/particula/blob/d7a696334418e048c3b3958180d8d4e9b3f49360/tutorials/interactive_python_states/files/particula_click-extrude-tool_SHARE.hipnc), the python code for the click-extrude-tool is also pasted below, just for the sake of having it available online without the need of downloading it. Keep in mind that if copied to a new HDA, the parameters used must match or be replaced accordingly.
 
 ```python
 
