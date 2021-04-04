@@ -35,6 +35,7 @@ The same principle is applied to ‘activate’ particles from a grain simulatio
 
 
 
+
 # Group/delete primitives by percentage
 
 Append a Sort SOP before this to randomize the primitive numbers. Based on a slider, a certain percentage of your incoming primitives will get either deleted or grouped. By dividing the current primitive number by the total number of prims we basically order them in a range from 0 to 1. Quite simple but really handy. Run over primitives.
@@ -57,6 +58,7 @@ if(@primnum<=(@numprim*ch("amount"))){
 ```
 
 
+
 # Densely packing circles
 
 From a post at the odforce forums, asking how to optimally pack circles from points scattered onto a surface. First approach was to solve it in VOPs, but the VEX solution later seemed to be much more elegant. In principle, we want to evaluate each point and its closest neighbour, store half of the distance between them and define that this should be the biggest radius possible for the circle copied to it. Simple way to do it is to write it to the @pscale attribute. Run it over points.
@@ -74,6 +76,8 @@ Point clouds are really interesting. We open a cloud handle for each point, set 
 ![pack-circles-pig](https://user-images.githubusercontent.com/81909946/113509198-8967ba00-9554-11eb-8108-f797e8c01dfe.gif)
 
 
+
+
 # Connecting dots
 
 Say we want to add lines between points based on their distances. There are of course built-in nodes that could achieve that, such as ConnectAdjacentPieces, but depending on the situation a custom solution might be faster or even your only option. Nearpoints() stores in an integer array a list of the closest points, with the option to specify the maximum amount of points to be found. We evaluate inside a for-each loop every element of the array separately. The if condition is to avoid overlapping primitives. Great thing is that creating geometry has become easier since version 16 (maybe 16.5?). Houdini has gotten smarter and no longer requires us to explicitly add vertices beforehand. Run it over points.
@@ -89,6 +93,8 @@ foreach(int pt; npts)
 ```
 
 
+
+
 # For Loop and Timeshift
 
 The previous example allows us to freely drape any curve, which we can expand in many different ways. For example, what if we want to copy these curves repetitively and offset their drape amount slightly, plus animate the  whole thing? I learned a similar trick from cgwiki, utilising Timeshift in combination with a For Loop. Here is the overall workflow for such setup:
@@ -102,6 +108,9 @@ In this case we are simply using the iteration number as ‘step’ for both ope
 ![draping-cables](https://user-images.githubusercontent.com/81909946/113509724-71de0080-9557-11eb-80c9-9553d4af4917.gif)
 
 [Download example scene file.](https://github.com/ribponce/particula/blob/b4aa077ec8c758d0b0d386931ac16a4f25ca3a1f/vex/files/particula_draping-cables_SHARE.hipnc)
+
+
+
 
 # Growing Spirals
 
@@ -127,3 +136,29 @@ The snippet above runs in detail mode, and only creates a spiraling line with so
 
 ![grow-spiral](https://user-images.githubusercontent.com/81909946/113510441-23cafc00-955b-11eb-9a97-7db0f251d833.gif)
 
+[Download example scene file.](https://github.com/ribponce/particula/blob/25c22918431b8b8b9e271b59f379d85a1f597a35/vex/files/particula_grow-spiral_SHARE.hipnc)
+
+# Growth Rings
+
+A similar setup as the Growing Spirals example, where we expand upon the vex code and modify some core principles. First thing you observe is that we have a loop within a loop. The noise displacement in this case is being handled outside the wrangle. Here we only take care of the rings themselves.
+
+```c#
+int count = chi("count");
+int ringcount = chi("ringcount");
+
+for(int i=0; i <= count; i++)
+{
+    float radius = ch("radius");
+    float angle = radians(i);
+
+    for(int j=0; j<=ringcount; j++){
+        float rel =  sin(radius * j);
+        vector pos = set(j * cos(angle) * rel, 0, j * sin(angle) * rel)  * ch("size");
+        pos.y = 0;
+        int pt = addpoint(0, pos);
+        setpointattrib(0, "id", pt, j, "set");
+    }
+}
+```
+
+[Download example scene file.](https://github.com/ribponce/particula/blob/25c22918431b8b8b9e271b59f379d85a1f597a35/vex/files/particula_growth-rings_SHARE.hipnc)
