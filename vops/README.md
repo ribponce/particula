@@ -31,7 +31,7 @@ For simulating it we’re using a simple vellum setup. One quick note on that; I
 # Looping Noise
 
 ![looping-noise_01](https://user-images.githubusercontent.com/81909946/113512457-0bf87580-9565-11eb-963f-67877d61c830.gif)
-![looping-noise_03](https://user-images.githubusercontent.com/81909946/113512535-609bf080-9565-11eb-9e81-8bc50e2ed737.gif)
+![looping-noise_03](https://user-images.githubusercontent.com/81909946/113512608-b6709880-9565-11eb-9e0e-0201ca6de3ce.gif)
 
 Very neat trick I learned after taking a look at Matt Estela’s legendary [odforce thread](https://forums.odforce.net/topic/24056-learning-vex-via-animated-gifs-bees-bombs/), where he mostly as a vex exercise replicates [bees&bombs](https://twitter.com/beesandbombs) awesome gifs in Houdini.
 
