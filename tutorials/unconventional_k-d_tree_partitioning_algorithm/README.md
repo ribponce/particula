@@ -1,5 +1,7 @@
 # Unconventional k-d tree partitioning algorithm
 
+![180130_kdtree_01_edit](https://user-images.githubusercontent.com/81909946/113516313-d27e3500-9579-11eb-85ca-045510538dfe.jpg)
+
 ## Part 1
 
 [Watch on Youtube](https://www.youtube.com/watch?v=IZoUdVS2Rw0)
