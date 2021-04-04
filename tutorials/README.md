@@ -1,7 +1,3 @@
-Landing page for long-form tutorials/write-ups/walkthroughs of some more specific subjects.
-
----
-
 # Interactive Python States
 
 [![Interactive Python States](https://user-images.githubusercontent.com/81909946/113515027-41f02680-9572-11eb-9030-8ad2955e96de.jpg)](https://github.com/ribponce/particula/tree/master/tutorials/interactive_python_states)
