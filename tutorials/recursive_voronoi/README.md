@@ -6,7 +6,7 @@ Welcome! In this quick video I walk you through this simple setup where we wrap 
 
 Going in a bit more detail, the combination of functions I used on the Scatter node is super useful and I use these types of things all the time. Quick if statements are an essential tool to have on your belt, and they allow you to create pretty complex logic. It basically evaluates the first argument, which in our case was a comparison between the iteration value and an integer. If the argument turns out to be true, the second argument will be then used, otherwise the third is spit out.
 
-![recursive-voronoi](https://user-images.githubusercontent.com/81909946/113515856-48cd6800-9577-11eb-9011-c37b8f8c6368.JPG)
+[![recursive-voronoi](https://user-images.githubusercontent.com/81909946/113515856-48cd6800-9577-11eb-9011-c37b8f8c6368.JPG)](https://youtu.be/Ko68LMPsBE0)
 
 See the [documentation](http://www.sidefx.com/docs/houdini/expressions/if.html) for more details.
 
