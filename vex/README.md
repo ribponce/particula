@@ -336,6 +336,139 @@ Check out the scene file below for more details. Really had some fun doing this 
 
 ![cel-automaton-01](https://user-images.githubusercontent.com/81909946/113511112-7c4fc880-955e-11eb-8966-7dca6b47a518.gif)
 ![cel-automaton-03](https://user-images.githubusercontent.com/81909946/113511115-7e198c00-955e-11eb-9e9d-a967489fe02d.gif)
-![cel-automaton-02](https://user-images.githubusercontent.com/81909946/113511119-7eb22280-955e-11eb-83a6-151932fa6552.gif)
 
 [Download scene file.](https://github.com/ribponce/particula/blob/a50bcf1edc042273ed146e645fcd035f8ebf4b29/vex/files/particula_cellular_automaton_SHARE.hipnc)
+
+---
+
+# Packed geometry intrinsics
+
+In certain situations we might need to “reset” the rotation and translation of a packed primitive or even an alembic geometry to the origin, and this vex method that uses intrinsic attributes seemed to be really efficient.
+
+This specific technique was really useful when offsetting the noise of a shader properly while the geometry moves in 3D space. Again, I could be wrong and there is a much easier solution to this (probably), but when working with an animated alembic, I found that performing all of your operations on a static geometry at the origin and transforming it back to the original alembic position using Fetch at the object level solved the issue where the noise wouldn’t “stick” to the geometry.
+
+The basic workflow would then be to place your packed geo at the origin with the snippet below, do whatever you need to it and on the upper level fetch its parent position. Also make sure to toggle Use Parent Transform of Fetched Object.
+
+```c#
+vector pivot = primintrinsic(0, "pivot", 0);
+matrix3 mat = 1;
+
+setprimintrinsic(0, "transform", 0, mat, "set");
+
+matrix abcMat = primintrinsic(0, "packedfulltransform", 0);
+vector abcPos = cracktransform(0, 0, 0, pivot, abcMat);
+
+@P = (@P - abcPos);
+```
+
+---
+
+# Compute tangent and bitangent
+
+I noticed that sometimes when using Polyframe on a closed curve I would get weird tangents and bitangents on that geometry’s first point, so I started studying how to mimic it and fix that little issue in vex. I did the first sketch of it in vops (which really helps organizing everything), and finally migrated it to text due to a considerable faster cook time (faster than polyframe as well).
+
+This one has a very neat trick that I really like; using modulo to procedurally get the next or previous point number. There’s also a simple check about whether its an open or closed geometry using the neighbours() function, and another check to see if the geometry is a curve or not by comparing the vertex count to the point count.
+
+I used the SideFX’s documentation on the Polyframe node to understand how the tangent and bittangent are computed. This specific snippet is using a Two Edges computation style, which basically means their tangents are computed through the smoothed difference between a point’s position and their neighbors’, but also will vary depending whether the geometry is a closed shape, a closed curve, or an open curve.
+
+This runs in detail mode, and requires a simple pointwrangle before it where we make sure the normal attribute is initialized (@N = @N;).
+
+```c#
+//declare variables
+vector t, tc, bt, btn, btnc;
+int nbs[];
+int closed, curve;
+//check if geometry is a curve
+int numvtx = primvertexcount(0, 0);
+if(numvtx>@numpt){
+curve=1;}
+//iterate over points
+for(int i=0; i<=@numpt; i++){
+//fetch point info
+    int nextpt = (i+1)%@numpt;
+    int prevpt = (i-1)%@numpt;
+    vector curN = point(0,"N",i);
+    vector curpos = point(0,"P",i);
+    vector nextpos = point(0,"P",nextpt);
+    vector prevpos = point(0,"P",prevpt);
+//check if geometry is open or closed
+    if(i==0 || i==@numpt-1){
+        nbs = neighbours(0, i);
+        foreach(int nb; nbs){
+            if(nb==0 || nb==@numpt-1){
+            closed = 1;}
+        }
+    }
+//general tangent and bitangent    
+    t = normalize(lerp(curpos-nextpos, prevpos-curpos, 0.5));
+    bt = cross(curN,t);
+    btn = cross(t,curN);
+//set them according to the geometry
+    if(curve==0){
+        if(closed==1){
+            setpointattrib(0,"tangentu",i,bt,"set");
+            setpointattrib(0,"tangentv",i,t,"set");
+        }else{
+            if(prevpt==@numpt-1){
+            tc = normalize(curpos-nextpos);}
+            else if(nextpt==0){
+            tc = normalize(prevpos-curpos);}
+            else{
+            tc = normalize(lerp(curpos-nextpos, prevpos-curpos, 0.5));}
+            btnc = cross(tc,curN);
+            setpointattrib(0,"tangentu",i,tc,"set");
+            setpointattrib(0,"tangentv",i,btnc,"set");
+        }
+    }else{        
+        if(closed==1){
+            setpointattrib(0,"tangentu",i,t,"set");
+            setpointattrib(0,"tangentv",i,btn,"set");
+        }else{
+            setpointattrib(0,"tangentu",i,bt,"set");
+            setpointattrib(0,"tangentv",i,t,"set");
+        }
+    }
+}
+```
+
+---
+
+# The Trapped Knight
+
+Inspired by a ![Numberphile video](https://www.youtube.com/watch?v=RGQe8waGJ4w), this small exercise was interesting to implement in vex. Since it’s an iterative process, I knew we would need a solver to make it happen.
+
+The first part is to generate a squared spiral, and a lot of help on the topic came from this SO thread. The Vex code to accomplish it is shown below. It runs in detail mode, and creates just the points for the solver to act on.
+
+```c#
+float X = chi("count");
+float Z = chi("count");
+int x = 0; int z = 0; int dx = 0; int dz = -1;
+vector pos;
+int t = (int)max(X,Z);
+int maxiter = t*t;
+for(int i=0; i<maxiter; i++){
+    if((-X/2 <= x) && (x <= X/2) && (-Z/2 <= z) && (z <= Z/2)){
+        pos = set(x,0,z);
+        addpoint(0,pos);
+    }
+    if( (x == z) || ((x < 0) && (x == -z)) || ((x > 0) && (x == 1-z))){
+        t = dx;
+        dx = -dz;
+        dz = t;
+    }
+    x += dx;
+    z += dz;
+}
+```
+
+The way I approached it was fairly simple: At every iteration of the loop we have a single point being considered as the selected one. From that point position we know that it can only move in a “L” shape, which can easily be coded as an array of coordinates, each representing the end position of an “L” shaped move (there are 8 in total).
+
+```c#
+vector coords[] = { {2,0,-1} , {1,0,-2} , {-1,0,-2}, {-2,0,-1}, {-2,0,1}, {-1,0,2}, {1,0,2}, {2,0,1} };
+```
+
+At every step, we look up all points on those coordinates and store them inside a new array. By sorting them in increasing order, we make sure the first element of the array is the lowest possible value for the knight to visit. We then make that option the selected point instead, and mark the previous one as already visited as well, since the knight is not allowed to revisit any positions.
+
+Take a look at the scene file below for more details on how to accomplish it.
+
+[Download scene file.](https://github.com/ribponce/particula/blob/607c1e7d27b18f404c0cf23a08000ca164207e0d/vex/files/particula_trapped-knight_SHARE.hipnc)
