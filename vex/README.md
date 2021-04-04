@@ -125,5 +125,5 @@ for(int i=0; i <= count; i++){
 
 The snippet above runs in detail mode, and only creates a spiraling line with some controls after promoting the channel parameters. There is a second wrangle that adds some displacement to the lines based on their position; it’s a simple anoise() function, which creates a our beloved alligator pattern. If I’m being honest, in most of the cases where I want to use any sort of noise I’ll choose VOPs over vex wrangles for the convenience and overall better control,  but these functions definitely have their value in this context as well.
 
-![falloff-from-particles](https://user-images.githubusercontent.com/81909946/113510427-1877d080-955b-11eb-8dd5-aab2681a5df9.gif)
+![grow-spiral](https://user-images.githubusercontent.com/81909946/113510441-23cafc00-955b-11eb-9a97-7db0f251d833.gif)
 
