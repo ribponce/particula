@@ -437,6 +437,8 @@ for(int i=0; i<=@numpt; i++){
 
 Inspired by a ![Numberphile video](https://www.youtube.com/watch?v=RGQe8waGJ4w), this small exercise was interesting to implement in vex. Since it’s an iterative process, I knew we would need a solver to make it happen.
 
+![trapped_knight](https://user-images.githubusercontent.com/81909946/113511256-419a6000-955f-11eb-9ebf-986e893754b2.gif)
+
 The first part is to generate a squared spiral, and a lot of help on the topic came from this SO thread. The Vex code to accomplish it is shown below. It runs in detail mode, and creates just the points for the solver to act on.
 
 ```c#
