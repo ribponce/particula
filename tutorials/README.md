@@ -26,5 +26,11 @@ I was wondering for a while simple ways on how to generate roots or veins struct
 
 # Recursive Voronoi
 
+[![Recursive Voronoi](https://user-images.githubusercontent.com/81909946/113515923-ae215900-9577-11eb-9eab-8b181402a291.jpg)](https://github.com/ribponce/particula/tree/master/tutorials/recursive_voronoi)
+
+Welcome! In this quick video I walk you through this simple setup where we wrap a fracturing procedure inside a loop to have it repeat countless times. There are a few interesting bits on how to work with for-each and for loops, and I hope you can learn something from it.
+
+[Read More](https://github.com/ribponce/particula/tree/master/tutorials/recursive_voronoi)
+
 # Unconventional k-d tree partitioning algorithm
 
