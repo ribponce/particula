@@ -36,6 +36,12 @@ The same principle is applied to ‘activate’ particles from a grain simulatio
 
 
 
+
+
+
+
+
+
 # Group/delete primitives by percentage
 
 Append a Sort SOP before this to randomize the primitive numbers. Based on a slider, a certain percentage of your incoming primitives will get either deleted or grouped. By dividing the current primitive number by the total number of prims we basically order them in a range from 0 to 1. Quite simple but really handy. Run over primitives.
