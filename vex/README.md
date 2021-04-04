@@ -1,3 +1,5 @@
+- ![SideFX’s VEX Functions Reference](http://www.sidefx.com/docs/houdini/vex/functions/index.html)
+
 # Falloff from points
 
 Creating falloffs is useful in countless situations. The base for this snippet came from a presentation by Entagma, where they showcased a bunch of cool projects. Rebuilding setups and playing around with other people’s solutions are one of the best ways to learn. We run the code over points.
