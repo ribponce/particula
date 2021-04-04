@@ -10,6 +10,8 @@ In this video we take a look at python viewer states inside Houdini 18, and how 
 
 ### Procedural Scatter
 
+This write-up is divided into two parts. First we take a look at how to export multiple pieces of geometry most efficiently as sequence files. Later we go through building a small network that procedurally checks for inputs on disk and randomly pick items.
+
 ### Shortest Paths
 
 ### Procedural Modules
