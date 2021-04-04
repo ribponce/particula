@@ -31,6 +31,7 @@ For simulating it we’re using a simple vellum setup. One quick note on that; I
 # Looping Noise
 
 ![looping-noise_01](https://user-images.githubusercontent.com/81909946/113512457-0bf87580-9565-11eb-963f-67877d61c830.gif)
+![looping-noise_03](https://user-images.githubusercontent.com/81909946/113512535-609bf080-9565-11eb-9e81-8bc50e2ed737.gif)
 
 Very neat trick I learned after taking a look at Matt Estela’s legendary [odforce thread](https://forums.odforce.net/topic/24056-learning-vex-via-animated-gifs-bees-bombs/), where he mostly as a vex exercise replicates [bees&bombs](https://twitter.com/beesandbombs) awesome gifs in Houdini.
 
@@ -38,9 +39,13 @@ One of the [links shared](https://necessarydisorder.wordpress.com/2017/11/15/dra
 
 The important bit of that page is below; a formula for evaluating a 4D noise, using coordinates x and z, as well as sine and cosine functions as arguments.
 
+```
 noise.eval(scale*x,scale*y,radius*cos(TWO_PI*t),radius*sin(TWO_PI*t))
+```
 
 Never mind that function name; over there it’s all done in Processing. But it isn’t all that hard to replicate the same in Houdini. Here’s a graph overview:
+
+![looping-noise_vopnet](https://user-images.githubusercontent.com/81909946/113512548-6eea0c80-9565-11eb-9825-555f38173a8a.png)
 
 Check out the file attached to play around with it, if you don’t feel like rebuilding it from scratch. The noise that worked best after a lot of experimentation is still Unified Noise’s Perlin Flow, but feel free to explore. Changing the input between a mesh and a point cloud can also greatly alter the look of it.
 
