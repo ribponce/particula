@@ -40,3 +40,8 @@ Welcome! In this quick video I walk you through this simple setup where we wrap 
 
 # Unconventional k-d tree partitioning algorithm
 
+[![180130_kdtree_02_edit](https://user-images.githubusercontent.com/81909946/113516332-f772a800-9579-11eb-9bc4-4a74131f800a.jpg)](https://github.com/ribponce/particula/tree/master/tutorials/unconventional_k-d_tree_partitioning_algorithm)
+
+Traditional K-dimensional algorithms will normally use neighbouring points to define the search trees and set its constraints. In this unconventional approach, we instead randomise the position of every perpendicular hyperplane that will split the current primitive into two at every iteration of a loop, for as many times as we want.
+
+[Read More](https://github.com/ribponce/particula/tree/master/tutorials/unconventional_k-d_tree_partitioning_algorithm)
