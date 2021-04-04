@@ -34,7 +34,7 @@ would yield:
 
 given that geometry had a name attribute at the frame of the export (note it’s prims, meaning it should be a string attribute). It’s a very nice technique, and we can even create meaningful folder structures with this. It all depends what we need, and how we wish to organize our files.
 
-[![proc-scatter_05](https://user-images.githubusercontent.com/81909946/113514903-77484480-9571-11eb-8ad2-dd7760597c8b.gif)](#)
+[![proc-scatter_05](https://user-images.githubusercontent.com/81909946/113514903-77484480-9571-11eb-8ad2-dd7760597c8b.gif)]()
 
 Middle clicking any parameter will show us the actual path, very handy for making sure there aren’t any typos and the attributes are being properly embed to the file name or path.
 
@@ -42,8 +42,8 @@ Middle clicking any parameter will show us the actual path, very handy for makin
 
 So now we’ve got a folder full of pieces of geometry and we want to either scatter them randomly or use a paint method to bring in random models to our scene. But what if tomorrow we decide to add more models to our candidates pool?
 
-[![proc-scatter_06](https://user-images.githubusercontent.com/81909946/113514913-84653380-9571-11eb-8705-8559b0991222.gif)](#)
-[![proc-scatter_004](https://user-images.githubusercontent.com/81909946/113514915-85966080-9571-11eb-998f-c9fb80129ddf.gif)](#)
+[![proc-scatter_06](https://user-images.githubusercontent.com/81909946/113514913-84653380-9571-11eb-8705-8559b0991222.gif)]()
+[![proc-scatter_004](https://user-images.githubusercontent.com/81909946/113514915-85966080-9571-11eb-998f-c9fb80129ddf.gif)]()
 
 In a nutshell, we want to create a small tool that takes in an input folder containing geometry exported as a sequence – just like we did on the previous section -, verifies how many files are there, and randomly picks one of the files from disk every time a new target point is evaluated.
 
