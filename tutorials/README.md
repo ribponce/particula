@@ -1,6 +1,4 @@
-## Interactive Python States
-
-[Read full write-up](https://github.com/ribponce/particula/tree/master/tutorials/interactive_python_states)
+###[Interactive Python States](https://github.com/ribponce/particula/tree/master/tutorials/interactive_python_states)
 
 ## Procedural Scatter
 
