@@ -33,13 +33,7 @@ The same principle is applied to ‘activate’ particles from a grain simulatio
 
 [Download grain particle activation scene file.](https://github.com/ribponce/particula/blob/b4aa077ec8c758d0b0d386931ac16a4f25ca3a1f/vex/files/particula_grain-particle-activation_SHARE.hiplc)
 
-
-
-
-
-
-
-
+---
 
 
 # Group/delete primitives by percentage
