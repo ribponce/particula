@@ -282,4 +282,60 @@ I think there is no need for a scene file on this one. After running the snippet
 
 ---
 
+# Cellular Automaton
 
+The patterns that emerge from automatons such as Conway’s Game of Life (amazing wiki entry btw, with more in-depth explanation) have always fascinated me. I decided to give it a go in vex as an exercise. In principle, every point is a “cell” that has its neighbours check at every iteration. If specific conditions are met, the cell’s state is either set to alive or dead (populated or unpopulated, respectively). In principle:
+
+1. Any live cell with fewer than two live neighbours shall die.
+2. Any live cell with more than three live neighbours shall die.
+3. Any dead cell with exactly three live neighbours comes to life.
+4. Any live cell with two or three live neighbours is passed on to the next generation.
+
+Rule number 4. can be ignored, since it’s basically byproduct from other conditions. The code below runs over points inside a solver. Let’s go through it.
+
+```c#
+int dead[];
+int nearpts[] = nearpoints(0, @P, 1.9);
+foreach(int num; nearpts)
+{
+    if(point(0, "dead", num)==1)
+    {
+        append(dead, num);
+    }
+    removevalue(dead, @ptnum);
+}
+if(len(nearpts)<=6)
+{
+    i@border=1;
+    i@dead=1;
+}
+if(@border!=1)
+{
+    if(@dead==0 && len(dead)>=7)
+    {
+        i@dead=1;
+    }
+    else if(@dead==0 && len(dead)<5)
+    {
+        i@dead=1;
+    }
+    else if(@dead==1 && len(dead)==5)
+    {
+        i@dead=0;
+    }
+}
+```
+
+Breaking it down; with the nearpoints() function we create an array for each of the cells and iterate over them. We state that if the current num (representing a neighbour cell) being evaluated is dead, we append it to a new array named dead[]. We also use removevalue() to make sure the array consists solely of its neighbours (exclude itself).
+
+Next we check for the border. Life supposedly uses an infinite grid, but for practical reasons we state that border cells are simply dead, so we have our little system contained to an arbitrary size. After some research I found that this is probably the most common way of adapting it.
+
+Then we use the dead[] array we created to specify the state switching of the cells. Since the maximum value of dead neighbours is 8 (remember, we are searching in a radius of 1.9, in a grid where the closest cells are 1 unit apart – vertical, horizontal and diagonal direct neighbours are taken in consideration), we only need to adapt the rules’ syntax slightly. if(@dead==0 && len(dead)>=7)  corresponds to rule 1., “live cell with fewer than two live neighbours”, and so forth.
+
+Check out the scene file below for more details. Really had some fun doing this one!
+
+![cel-automaton-01](https://user-images.githubusercontent.com/81909946/113511112-7c4fc880-955e-11eb-8966-7dca6b47a518.gif)
+![cel-automaton-03](https://user-images.githubusercontent.com/81909946/113511115-7e198c00-955e-11eb-9e9d-a967489fe02d.gif)
+![cel-automaton-02](https://user-images.githubusercontent.com/81909946/113511119-7eb22280-955e-11eb-83a6-151932fa6552.gif)
+
+[Download scene file.](https://github.com/ribponce/particula/blob/a50bcf1edc042273ed146e645fcd035f8ebf4b29/vex/files/particula_cellular_automaton_SHARE.hipnc)
