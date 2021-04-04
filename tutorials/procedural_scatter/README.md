@@ -1,20 +1,18 @@
 # Procedural Scatter
 
-[![particula_procedural-scatter_cover-1024x576](https://user-images.githubusercontent.com/81909946/113514847-2f292200-9571-11eb-80d4-8e4892ac6b26.jpg)](#)
-
 This write-up is divided into two parts. First we take a look at how to export multiple pieces of geometry most efficiently as sequence files. Later we go through building a small network that procedurally checks for inputs on disk and randomly pick items.
 
 ## Batch Export Geometry as Sequence
 
 Let’s suppose we have a bunch of packed primitives that we’d like to export as separate geometry files, for example pieces of a fractured rigid body simulation.
 
-[![proc-scatter_02](https://user-images.githubusercontent.com/81909946/113514861-3fd99800-9571-11eb-8302-f1277617e4e2.gif)](#)
+![proc-scatter_02](https://user-images.githubusercontent.com/81909946/113514861-3fd99800-9571-11eb-8302-f1277617e4e2.gif)
 
 A great method for achieving that is to use a simple attribute that corresponds to their packed primitive number (Connectivity SOP creates a an integer @class attribute for you that does just that) to selectively link them to the current frame.
 
 In other words, at every frame we keep only one of the packed primitives in the scene (blast node with the expression @class==`$F-1` ) and export them all as a sequence. During that process, we can also reset their position to the origin, and even create proper name attributes to help us organize the files.
 
-[![proc-scatter_04](https://user-images.githubusercontent.com/81909946/113514878-508a0e00-9571-11eb-9995-f28e76253e0a.gif)](#)
+![proc-scatter_04](https://user-images.githubusercontent.com/81909946/113514878-508a0e00-9571-11eb-9995-f28e76253e0a.gif)
 
 The snippet below is a very handy method for embedding the @class attribute onto a new @name attribute, using the sprintf function. I use here “model_” as a prefix. Note: adding one unit to @class prevents model names from starting at 0000.
 
@@ -34,7 +32,7 @@ would yield:
 
 given that geometry had a name attribute at the frame of the export (note it’s prims, meaning it should be a string attribute). It’s a very nice technique, and we can even create meaningful folder structures with this. It all depends what we need, and how we wish to organize our files.
 
-[![proc-scatter_05](https://user-images.githubusercontent.com/81909946/113514903-77484480-9571-11eb-8ad2-dd7760597c8b.gif)](#)
+![proc-scatter_05](https://user-images.githubusercontent.com/81909946/113514903-77484480-9571-11eb-8ad2-dd7760597c8b.gif)
 
 Middle clicking any parameter will show us the actual path, very handy for making sure there aren’t any typos and the attributes are being properly embed to the file name or path.
 
@@ -42,8 +40,8 @@ Middle clicking any parameter will show us the actual path, very handy for makin
 
 So now we’ve got a folder full of pieces of geometry and we want to either scatter them randomly or use a paint method to bring in random models to our scene. But what if tomorrow we decide to add more models to our candidates pool?
 
-[![proc-scatter_06](https://user-images.githubusercontent.com/81909946/113514913-84653380-9571-11eb-8705-8559b0991222.gif)](#)
-[![proc-scatter_004](https://user-images.githubusercontent.com/81909946/113514915-85966080-9571-11eb-998f-c9fb80129ddf.gif)](#)
+![proc-scatter_06](https://user-images.githubusercontent.com/81909946/113514913-84653380-9571-11eb-8705-8559b0991222.gif)
+![proc-scatter_004](https://user-images.githubusercontent.com/81909946/113514915-85966080-9571-11eb-998f-c9fb80129ddf.gif)
 
 In a nutshell, we want to create a small tool that takes in an input folder containing geometry exported as a sequence – just like we did on the previous section -, verifies how many files are there, and randomly picks one of the files from disk every time a new target point is evaluated.
 
@@ -105,7 +103,7 @@ Finally, this is connected to a CopyToPoints node, using the input of the For-ea
 
 Here’s an overview of the scatter tool network:
 
-[![proc-scatter_tool_01](https://user-images.githubusercontent.com/81909946/113514949-cbebbf80-9571-11eb-9e29-ebd044b1b57e.jpg)](#)
+![proc-scatter_tool_01](https://user-images.githubusercontent.com/81909946/113514949-cbebbf80-9571-11eb-9e29-ebd044b1b57e.jpg)
 
 And as usual, the scene file is available below. The whole concept can be expanded to work procedurally and seamlessly with heightfields, which is a great thing.
 
