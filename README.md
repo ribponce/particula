@@ -10,7 +10,7 @@
 - [cgwiki](http://www.tokeru.com/cgwiki/index.php?title=Houdini) - Matt Estela’s bible. Arguably the best user-made Houdini resources page, and a huge inspiration as well.
 - [odforce](https://forums.odforce.net/) - this is probably the best 3rd party Houdini-related forum and where the incredible wizards hang around. SideFX’s own hub also has some amazing discussions.
 - [jtomori](https://github.com/jtomori/vex_tutorial) - Amazing vex page reference. Even offers a library containing all of his examples for download. I’d recommend only jumping in here if you’re already more or less familiarized with the vex.
-- [Entagma](http://www.entagma.com/) – Fantastic video tutorials and resources page by Manuel Casasola and Moritz Schwind.
+- [Entagma](http://www.entagma.com/) - Fantastic video tutorials and resources page by Manuel Casasola and Moritz Schwind.
 - [GameTutor](http://www.gametutor.com/live/home-live/) - This has a special place in this list. Kenny Lammers’ GaTu taught me an incredible lot when first starting out.
 - [SideFX’s Tutorials page](https://www.sidefx.com/tutorials/) - It compiles great tutorials, either paid or free, from all over the internet. Great starting point.
 - [Indie-Pixel](https://www.youtube.com/channel/UC7P6olyswpgJlElZA6RXUNQ) - Kenny Lammers’ most recent project with some great introductory videos. Also tackles the usage of Houdini Engine really well, and even shows off his skills on Unity.
