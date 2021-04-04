@@ -35,7 +35,6 @@ The same principle is applied to ‘activate’ particles from a grain simulatio
 
 ---
 
-
 # Group/delete primitives by percentage
 
 Append a Sort SOP before this to randomize the primitive numbers. Based on a slider, a certain percentage of your incoming primitives will get either deleted or grouped. By dividing the current primitive number by the total number of prims we basically order them in a range from 0 to 1. Quite simple but really handy. Run over primitives.
@@ -57,7 +56,7 @@ if(@primnum<=(@numprim*ch("amount"))){
 }
 ```
 
-
+---
 
 # Densely packing circles
 
@@ -75,8 +74,7 @@ Point clouds are really interesting. We open a cloud handle for each point, set 
 
 ![pack-circles-pig](https://user-images.githubusercontent.com/81909946/113509198-8967ba00-9554-11eb-8108-f797e8c01dfe.gif)
 
-
-
+---
 
 # Connecting dots
 
@@ -92,8 +90,7 @@ foreach(int pt; npts)
 }
 ```
 
-
-
+---
 
 # For Loop and Timeshift
 
@@ -109,8 +106,7 @@ In this case we are simply using the iteration number as ‘step’ for both ope
 
 [Download example scene file.](https://github.com/ribponce/particula/blob/b4aa077ec8c758d0b0d386931ac16a4f25ca3a1f/vex/files/particula_draping-cables_SHARE.hipnc)
 
-
-
+---
 
 # Growing Spirals
 
@@ -137,6 +133,8 @@ The snippet above runs in detail mode, and only creates a spiraling line with so
 ![grow-spiral](https://user-images.githubusercontent.com/81909946/113510441-23cafc00-955b-11eb-9a97-7db0f251d833.gif)
 
 [Download example scene file.](https://github.com/ribponce/particula/blob/25c22918431b8b8b9e271b59f379d85a1f597a35/vex/files/particula_grow-spiral_SHARE.hipnc)
+
+---
 
 # Growth Rings
 
@@ -165,8 +163,7 @@ for(int i=0; i <= count; i++)
 
 [Download example scene file.](https://github.com/ribponce/particula/blob/25c22918431b8b8b9e271b59f379d85a1f597a35/vex/files/particula_growth-rings_SHARE.hipnc)
 
-
-
+---
 
 # Scramble color between neighbors
 
@@ -212,3 +209,42 @@ setpointattrib(0, "Cd", @ptnum, newCd, "set");
 ![scramble-between-neighbors-low](https://user-images.githubusercontent.com/81909946/113510844-0b5be100-955d-11eb-9277-eb9e4d28cb25.jpg)
 
 [Download example scene file.](https://github.com/ribponce/particula/blob/1183d64d18313d86d0d01ac843c10397f9f0cd8e/vex/files/particula_scramble-colors_SHARE.hipnc)
+
+---
+
+# Grow attributes
+
+This is basically using the nearpoints() function, which might restrict it in some ways but in the other hand it should run faster than opening point clouds for checking neighbors. Here we are coloring some points red in the original geometry either manually or randomly, and growing their Cd attribute across the surface. Run it in detail mode.
+
+To be honest this one seems overly complicated and doesn’t achieve that much, but I’ll leave it here nonetheless in case I revisit something similar in the future. It was a good vex exercise at least.
+
+```c#
+int infected[];
+for(int j=0; j<=npoints(0); j++)
+{
+    vector curCd = point(0, "Cd", j);
+    if(curCd.r==1&&curCd.g==0&&curCd.b==0)
+    {
+        append(infected, j);
+    }
+}
+
+//i[]@inf = infected; //debug
+
+for(int i=0; i<=len(infected); i++)
+{
+    int curpt = infected[i];
+    vector npos = point(0, "P", curpt);
+    int npts[] = nearpoints(0, npos, ch("maxdist"));
+    foreach(int pt; npts)
+    {
+        int nbcd = point(0, "Cd", pt);
+        if(nbcd!=0)
+        {
+            setpointattrib(0, "Cd", pt, {1,0,0}, "set");
+        }
+    }
+}
+```
+
+[Download scene file.](https://github.com/ribponce/particula/blob/5a970001dea7829003b08aaf9ffae0d268b5928a/vex/files/particula_grow-attribute_SHARE.hipnc)
