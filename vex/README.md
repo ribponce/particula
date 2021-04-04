@@ -161,4 +161,6 @@ for(int i=0; i <= count; i++)
 }
 ```
 
+![growth-rings](https://user-images.githubusercontent.com/81909946/113510611-f03ca180-955b-11eb-84fc-a835130eebce.gif)
+
 [Download example scene file.](https://github.com/ribponce/particula/blob/25c22918431b8b8b9e271b59f379d85a1f597a35/vex/files/particula_growth-rings_SHARE.hipnc)
