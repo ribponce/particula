@@ -1,4 +1,4 @@
-# particula
+# About
 
     /parˈti.ku.la/; diminutive of pars (‘part, piece’); small part, particle.
 
