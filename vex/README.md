@@ -1,8 +1,8 @@
 In this page I will be compiling interesting snippets and examples. I intend to simplify them for the sake of organisation, but there are some cases where I go a little more in depth. I hope I can often provide a scene file along with the examples, though not guaranteed.
 
-I will still often struggle translating ideas into code, but having such a page is also a personal incentive to keep practicing and learning. Therefore, any requests, questions or suggestions are more than welcome. Keep in mind, this is just me sharing my personal annotations and handy setups.
+I will still often struggle translating ideas into code, but having such a page is also a personal incentive to keep practicing and learning. Therefore, any requests, questions or suggestions are more than welcome.
 
-[SideFX’s VEX Functions Reference](http://www.sidefx.com/docs/houdini/vex/functions/index.html){:target="_blank"}
+[SideFX’s VEX Functions Reference](http://www.sidefx.com/docs/houdini/vex/functions/index.html)
 
 # Falloff from points
 
