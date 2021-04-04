@@ -16,7 +16,7 @@ The reason for that is also mentioned briefly in the video, but to be more speci
 
 The way I handled that was to start working with a pre-constructed grid, and any actions performed would simply check for the corresponding cell on the grid and merge it back to the original geometry.
 
-![cubes_py_demo02_reduced](https://user-images.githubusercontent.com/81909946/113513955-4e718080-956c-11eb-9b3a-0297ff8e4c45.gif)
+[![cubes_py_demo02_reduced](https://user-images.githubusercontent.com/81909946/113513955-4e718080-956c-11eb-9b3a-0297ff8e4c45.gif)](https://www.youtube.com/watch?v=DTReVsTmKNY)
 
 *Still using an old medieval roof asset I created previously, in here I was already able to achieve the results I envisioned for the cells behavior, but still wasn’t satisfied with the fact that only flat inputs were accepted.*
 
@@ -26,13 +26,13 @@ A geometry creation process by demand would have been ideal, and I hope I will b
 
 Now onto to the Favela Tool (or Slum Tool) also showcased in the video, a few things I’d like to point out. It’s still under development, like I mentioned, and a few things will have to be reworked.
 
-![favela_demo_01_reduced](https://user-images.githubusercontent.com/81909946/113513982-65b06e00-956c-11eb-9822-b068004f6a59.gif)
+[![favela_demo_01_reduced](https://user-images.githubusercontent.com/81909946/113513982-65b06e00-956c-11eb-9822-b068004f6a59.gif)](https://www.youtube.com/watch?v=DTReVsTmKNY)
 
 *The project took a sharp turn, and I decided to attempt and create a tool that could generate favelas (slums) instead of little medieval buildings, to take full artistic advantage of the newly implemented acceptance of any quad grid as input.*
 
 I spent most of my time developing a couple of procedural roofs that could be applied to any quad input, and that technique seems to be working well. It would still need some research and experimentation If I wanted to make it work with inputs of n-sides, which I something I indeed would like to see.
 
-![favela_demo_02_reduced](https://user-images.githubusercontent.com/81909946/113513992-7234c680-956c-11eb-8196-4b68fc06e628.gif)
+[![favela_demo_02_reduced](https://user-images.githubusercontent.com/81909946/113513992-7234c680-956c-11eb-8196-4b68fc06e628.gif)](https://www.youtube.com/watch?v=DTReVsTmKNY)
 
 *I was always concerned about performance, and made sure that everything was inside compiled blocks, whenever applicable. From here, I spent time implementing streets, as well as a random generator within the tool, both of which can be seen in video.*
 
