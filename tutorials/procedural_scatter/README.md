@@ -40,8 +40,9 @@ Middle clicking any parameter will show us the actual path, very handy for makin
 
 So now we’ve got a folder full of pieces of geometry and we want to either scatter them randomly or use a paint method to bring in random models to our scene. But what if tomorrow we decide to add more models to our candidates pool?
 
-![proc-scatter_06](https://user-images.githubusercontent.com/81909946/113514913-84653380-9571-11eb-8705-8559b0991222.gif)
-![proc-scatter_004](https://user-images.githubusercontent.com/81909946/113514915-85966080-9571-11eb-998f-c9fb80129ddf.gif)
+![proc-scatter-06](https://user-images.githubusercontent.com/81909946/113515391-7fee4a00-9574-11eb-8c03-f0c4fbaf3bdb.gif)
+![proc-scatter-04](https://user-images.githubusercontent.com/81909946/113515367-6220e500-9574-11eb-9416-8ead4c19b574.gif)
+
 
 In a nutshell, we want to create a small tool that takes in an input folder containing geometry exported as a sequence – just like we did on the previous section -, verifies how many files are there, and randomly picks one of the files from disk every time a new target point is evaluated.
 
