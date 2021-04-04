@@ -2,8 +2,7 @@
 
 [Watch on Youtube](https://www.youtube.com/watch?v=MwFARaaTLW4)
 
-![Procedural Modules](https://user-images.githubusercontent.com/81909946/113516060-8e3e6500-9578-11eb-8df8-9f7e2385efd2.jpg)
-
+![Procedural Modules](https://user-images.githubusercontent.com/81909946/113516073-a0b89e80-9578-11eb-9853-840f3b6a8ba5.jpg)
 
 Being able to copy any number of primitives from a selected pool to *n* points efficiently is something that comes up really often. Of course there are many ways of tackling any given problem, but this approach gives us the ability to further implement other core concepts that end up being essential for developing realistic modules.
 
