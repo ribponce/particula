@@ -111,5 +111,5 @@ I realize this sort of tool might become kind of obsolete when Houdini 18 with t
 
 Thanks for reading, see you in the next one.
 
-Download scene file.
+[Download scene file.](https://github.com/ribponce/particula/blob/845a8ab7b05d4242a1a10c59fbdad52cca318b76/tutorials/procedural_scatter/files/particula_procedural-scatter_SHARE.hip)
 
