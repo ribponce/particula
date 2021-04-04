@@ -164,3 +164,51 @@ for(int i=0; i <= count; i++)
 ![growth-rings_small](https://user-images.githubusercontent.com/81909946/113510793-c20b9180-955c-11eb-852b-4b178a871feb.gif)
 
 [Download example scene file.](https://github.com/ribponce/particula/blob/25c22918431b8b8b9e271b59f379d85a1f597a35/vex/files/particula_growth-rings_SHARE.hipnc)
+
+
+
+
+# Scramble color between neighbors
+
+We create an array for each of our incoming points and store their neighbors. Then iterate over them, getting their Cd’s and storing into a new array. Lastly, using the pop() function we get a random item of that same array and assign its color to our current point. I might be mistaken, but I think this does not guarantee that all colors will be exclusive due to its parallelism. The results are nice nonetheless.
+
+```c#
+vector nbarray[];
+int npts[] = nearpoints(0, @P, ch("maxdist"), chi("maxpts"));
+foreach(int i; npts)
+{
+    vector curCd = point(0, "Cd", i);
+    append(nbarray, curCd);
+    @Cd = pop(nbarray, (int)fit01(rand(i),0,len(npts)));
+}
+
+//v[]@nb_array = nbarray; //debug
+```
+
+
+
+# Pick random from single array
+
+To make a single array and randomize the colors all over our incoming geometry we need two wrangles. Well, at least that’s how I did it for now. This one run as detail, where we simply append all of the colors from all points into a single array.
+
+```c#
+vector cdarray[];
+for(int i=0; i<npoints(0); i++)
+{
+vector curCd = point(0, "Cd", i);
+append(cdarray, curCd);
+}
+v[]@cd_array = cdarray;
+```
+
+We can then run over points and have them randomly get an item from that array and use it as their new Cd. Just like the previous example, I believe many items from our array might get repeated or simply ignored. I’ll try to investigate further, new methods that ensure all incoming colors are reused only once. Suggestions are more than welcome.
+
+```c#
+vector cdarray[] = detail(0, "cd_array", 0);
+vector newCd = pop(cdarray, (int)fit01(rand(@ptnum),0,npoints(0)));
+setpointattrib(0, "Cd", @ptnum, newCd, "set");
+```
+
+![scramble-between-neighbors-low](https://user-images.githubusercontent.com/81909946/113510844-0b5be100-955d-11eb-9277-eb9e4d28cb25.jpg)
+
+[Download example scene file.](https://github.com/ribponce/particula/blob/1183d64d18313d86d0d01ac843c10397f9f0cd8e/vex/files/particula_scramble-colors_SHARE.hipnc)
