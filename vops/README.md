@@ -6,6 +6,8 @@ For some operations I will prefer VOPs over vex in a heartbeat, such as when I n
 
 I tried a couple of times to do something similar in the past using vex, only to get frustrated when it didn’t work as expected. Finally gave it a more patient go in VOPs and it came out really nice. Here is an overview of the network handling the curve’s spiraling.
 
+![procedural-rope-vopnet](https://user-images.githubusercontent.com/81909946/113512268-267e1f00-9564-11eb-8cf9-718073f58fd4.png)
+
 It might look more complex than it actually is. It consists basically of using sin() and cos() functions to displace the points. The trick is to properly displace them perpendicularly to their tangents, so no matter how we orient the input curve it will always swirl nicely along.
 
 By the way, there is a simple setup to calculate @tangentu based on the curve’s points positions prior to this VOP. On the provided file you will also find a VOP solution to that, but here’s the snippet in vex.
@@ -19,3 +21,9 @@ v@tangentu = normalize(@P - point(0, "P", @ptnum-1));
 For simulating it we’re using a simple vellum setup. One quick note on that; I found that it’s much easier to simulate the splines in fairly low resolution (in terms of point count), and upres/polywire it later on. It’s important to pump up the constraint iterations on the vellum solver and eventually substeps as well, though it will always depend on what you’re trying to achieve.
 
 *File updated: I implemented a few extra things to the VOP network handling the curve’s intertwining, now supporting taper, squish and also braid style!
+
+![procedural-rope_02](https://user-images.githubusercontent.com/81909946/113512283-38f85880-9564-11eb-90bf-5dc347b4afcf.gif)
+![procedural-rope_01](https://user-images.githubusercontent.com/81909946/113512287-3ac21c00-9564-11eb-84c5-227be7666e4a.gif)
+
+[Download scene file.](https://github.com/ribponce/particula/blob/58685e975a3c7e7e5a158f0b19f4ef060d34b410/vops/files/particula_procedural-rope_SHARE.hipnc)
+
