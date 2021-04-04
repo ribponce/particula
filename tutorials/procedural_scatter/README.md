@@ -1,6 +1,6 @@
 # Procedural Scatter
 
-![particula_procedural-scatter_cover-1024x576](https://user-images.githubusercontent.com/81909946/113514847-2f292200-9571-11eb-80d4-8e4892ac6b26.jpg)
+[![particula_procedural-scatter_cover-1024x576](https://user-images.githubusercontent.com/81909946/113514847-2f292200-9571-11eb-80d4-8e4892ac6b26.jpg)](#)
 
 This write-up is divided into two parts. First we take a look at how to export multiple pieces of geometry most efficiently as sequence files. Later we go through building a small network that procedurally checks for inputs on disk and randomly pick items.
 
