@@ -16,7 +16,7 @@ At the Switch operator we simply use a point function. Being able to access each
 
 Another nice addition to this (which hasn’t been shown nor implemented) would be to add weighting. In some cases it could be interesting to have the ability to make some primitives have a higher or lower probability of being instantiated.
 
-A simplified scene file shown in the first part of the video is available here.
+A simplified scene file shown in the first part of the video is available for [download here.](https://github.com/ribponce/particula/blob/851e570a8305e3a82b6d94f043f6dd402b869749/tutorials/procedural_modules/files/particula_procedural-modules_SHARE.hipnc)
 
 I haven’t included the shape generation part of the setup, since I think it deserves to be first fleshed out to a more polished state. I might revisit it again soon.
 
