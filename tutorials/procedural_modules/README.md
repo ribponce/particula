@@ -2,7 +2,7 @@
 
 [Watch on Youtube](https://www.youtube.com/watch?v=MwFARaaTLW4)
 
-Being able to copy any number of primitives from a selected pool to n points efficiently is something that comes up really often. Of course there are many ways of tackling any given problem, but this approach gives us the ability to further implement other core concepts that end up being essential for developing realistic modules.
+Being able to copy any number of primitives from a selected pool to *n* points efficiently is something that comes up really often. Of course there are many ways of tackling any given problem, but this approach gives us the ability to further implement other core concepts that end up being essential for developing realistic modules.
 
 Humans are extremely good at perceiving repeating patterns. A simple copy-paste is rarely enough to trick our brains into thinking something looks real. With that in mind, I researched many different ways of creating unique modules when modelling procedural buildings. This quick video shows one of the core principles that I developed that allowed in a relatively cheap way to generate an infinite amount of combinations when instantiating walls, windows and balcony modules.
 
