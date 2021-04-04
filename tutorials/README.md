@@ -20,8 +20,7 @@ This write-up is divided into two parts. First we take a look at how to export m
 
 # Shortest Paths
 
-[![Shortest Paths](https://user-images.githubusercontent.com/81909946/113515536-60a3ec80-9575-11eb-8ebd-713ad3aced19.jpg)]
-(https://github.com/ribponce/particula/tree/master/tutorials/shortest_paths)
+[![Shortest Paths](https://user-images.githubusercontent.com/81909946/113515536-60a3ec80-9575-11eb-8ebd-713ad3aced19.jpg)](https://github.com/ribponce/particula/tree/master/tutorials/shortest_paths)
 
 I was wondering for a while simple ways on how to generate roots or veins structures that possibly didn’t rely on solvers. There is a very interesting node in Houdini called FindShortestPath which will basically search for the most optimal path between one or multiple start and end points on a given mesh.
 
