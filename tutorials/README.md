@@ -8,7 +8,7 @@ Some of these have their own Youtube videos that I'd also recommend watching.
 
 In this video we take a look at python viewer states inside Houdini 18, and how its practicality can help technical artists develop interactive, easy-to-use tools for fast and smart content creation.
 
-### Procedural Scatter
+### [Procedural Scatter](https://github.com/ribponce/particula/tree/master/tutorials/procedural_scatter)
 
 This write-up is divided into two parts. First we take a look at how to export multiple pieces of geometry most efficiently as sequence files. Later we go through building a small network that procedurally checks for inputs on disk and randomly pick items.
 
