@@ -29,9 +29,9 @@ The same principle is applied to ‘activate’ particles from a grain simulatio
 
 ![grains-activ](https://user-images.githubusercontent.com/81909946/113508719-d1391200-9551-11eb-9340-53fc48764837.gif)
 
-[Download simple falloff example scene file.](https://github.com/ribponce/particula/blob/71d3cc211ec9899675288598524ac31a1e9007be/files/vex/particula_falloff-from-points_SHARE.hipnc)
+[Download simple falloff example scene file.](https://github.com/ribponce/particula/blob/b4aa077ec8c758d0b0d386931ac16a4f25ca3a1f/vex/files/particula_falloff-from-points_SHARE.hipnc)
 
-[Download grain particle activation scene file.](https://github.com/ribponce/particula/blob/71d3cc211ec9899675288598524ac31a1e9007be/files/vex/particula_grain-particle-activation_SHARE.hiplc)
+[Download grain particle activation scene file.](https://github.com/ribponce/particula/blob/b4aa077ec8c758d0b0d386931ac16a4f25ca3a1f/vex/files/particula_grain-particle-activation_SHARE.hiplc)
 
 
 
@@ -101,4 +101,4 @@ In this case we are simply using the iteration number as ‘step’ for both ope
 
 ![draping-cables](https://user-images.githubusercontent.com/81909946/113509724-71de0080-9557-11eb-80c9-9553d4af4917.gif)
 
-[Download example scene file.](https://github.com/ribponce/particula/blob/71d3cc211ec9899675288598524ac31a1e9007be/files/vex/particula_draping-cables_SHARE.hipnc)
+[Download example scene file.](https://github.com/ribponce/particula/blob/b4aa077ec8c758d0b0d386931ac16a4f25ca3a1f/vex/files/particula_draping-cables_SHARE.hipnc)
