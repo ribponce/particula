@@ -248,3 +248,38 @@ for(int i=0; i<=len(infected); i++)
 ```
 
 [Download scene file.](https://github.com/ribponce/particula/blob/5a970001dea7829003b08aaf9ffae0d268b5928a/vex/files/particula_grow-attribute_SHARE.hipnc)
+
+---
+
+# Vase generator
+
+A short vex exercise. I’m always fascinated about being able to use ramps to create 3D shapes in Houdini. This is something I used to do quite a lot when I started experimenting with Rhino’s plugin Grasshopper, so I decided to give it a go in vex. Similar to the growth rings snippet, here we also wrap a for loop inside another, where each is responsible for handling the horizontal and vertical sections of our container, respectively.
+
+![vase-gen](https://user-images.githubusercontent.com/81909946/113511045-1ebb7c00-955e-11eb-855e-d9521fb7a206.gif)
+
+Note as well the last two lines of code. We assign two attributes with setpointattrib() that later allows us to connect the points accordingly.
+
+```c#
+int h_div = chi("h_div");
+for(float i=0; i<h_div; i++)
+{
+    @P.y = i / h_div;
+    float v_div = ch("v_div");
+    
+    for(float j=0; j<v_div; j++)
+    {
+        float ramp = chramp("P", @P.y);
+        float angle = radians(j) * (360/v_div);
+        vector pos = set(cos(angle)*ramp, @P.y * ch("height"), sin(angle)*ramp);
+        int pt = addpoint(0, pos);
+        setpointattrib(0, "horizontal", pt, i, "set");
+        setpointattrib(0, "vertical", pt, j, "set");
+    }
+}
+```
+
+I think there is no need for a scene file on this one. After running the snippet in detail mode, appending an Add node (Polygons>By Group, Add by Attribute), Skin and Polyextrude is all we need.
+
+---
+
+
