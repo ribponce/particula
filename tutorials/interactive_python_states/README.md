@@ -8,7 +8,7 @@ The first iteration of this project was an attempt at replicating by Simon Verst
 
 However, after getting a hang of how things could be implemented, I soon realized that simply extruding geometry wasn’t going to achieve the results I envisioned.!
 
-![cubes_py_demo01_reduced](https://user-images.githubusercontent.com/81909946/113513914-208c3c00-956c-11eb-835d-8964c1419ac6.gif)
+[![cubes_py_demo01_reduced](https://user-images.githubusercontent.com/81909946/113513914-208c3c00-956c-11eb-835d-8964c1419ac6.gif)](https://www.youtube.com/watch?v=DTReVsTmKNY)
 
 *This is where all started. On the first iteration of this project the only accepted input was a flat grid. It also relied solely on extruding primitives, which later forced me to search for other alternatives.*
 
