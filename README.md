@@ -2,7 +2,7 @@
 
 I would like this page to be our ‘start here’ hub. I’ll be updating this often, adding relevant content and updating our page list as it grows in size. These were previously also listed at the main menu, however  I didn’t quite like having them as a drop-down. Everything in one static page makes more sense to me.
 
-    ![Vex](https://github.com/ribponce/particula/tree/master/vex) – Compilation of handy wrangle setups that I collect along the way, interesting tips and also sample scene files.
+![Vex](https://github.com/ribponce/particula/tree/master/vex) – Compilation of handy wrangle setups that I collect along the way, interesting tips and also sample scene files.
 
 Below you will find a list of really good external resources that I find myself visiting all the time.
 
