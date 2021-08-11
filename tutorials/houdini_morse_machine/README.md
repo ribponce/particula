@@ -1,6 +1,6 @@
 # Houdini Morse Machine
 
-![morse-machine_demo_01](https://user-images.githubusercontent.com/81909946/129100191-be036bd3-8b3a-4b04-a7d7-19d9722e4448.gif)
+[![morse-machine_demo_01](https://user-images.githubusercontent.com/81909946/129100191-be036bd3-8b3a-4b04-a7d7-19d9722e4448.gif)](https://www.youtube.com/watch?v=rKTLy-FtEzE)
 
 [Watch on Youtube](https://youtu.be/rKTLy-FtEzE)
 
