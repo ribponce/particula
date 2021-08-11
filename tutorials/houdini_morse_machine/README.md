@@ -12,7 +12,7 @@ And here we are. I ended up creating something that turned out to be much more i
 
 I mentioned a Auto Hotkey script in the video that allows us to interactively type text and have the corresponding Morse code generated on the fly. That script is to be found in the files directory, alongside with the houdini file and the necessary mp3 files for the audio generation.
 
-One interesting bit that was not mentioned in the video is seen below:
+One other interesting bit that was not mentioned in the video is seen below:
 
 ![image](https://user-images.githubusercontent.com/81909946/129100396-ee6f4b57-e8cc-45ad-9a65-aee6517f2c9b.png)
 
