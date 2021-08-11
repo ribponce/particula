@@ -4,6 +4,8 @@
 
 In this video I walk you through a setup which converts any text into Morse code. Additionally, it will also generate the audio accordingly. Very interesting bits here, and it was particularly a challenge to learn a bit more how CHOPs work.
 
+[Read More](https://github.com/ribponce/particula/tree/master/tutorials/houdini_morse_machine)
+
 # Interactive Python States
 
 [![Interactive Python States](https://user-images.githubusercontent.com/81909946/113515027-41f02680-9572-11eb-9030-8ad2955e96de.jpg)](https://github.com/ribponce/particula/tree/master/tutorials/interactive_python_states)
