@@ -6,6 +6,10 @@
 
 In this video I walk you through a setup which converts any text into Morse code. Additionally, it will also generate the audio accordingly. Very interesting bits here, and it was particularly a challenge to learn a bit more how CHOPs work.
 
+This project started off as something somewhat unrelated. I was making a simple looped animation where dots and dashes would scroll around and subtly form words, however that whole thing got me thinking how could I actually design a system that would allow me to modify the words and not rely so much on keyframing things.
+
+And here we are. I ended up creating something that turned out to be much more intrinsically interesting that what I was developing in the first place, in my opinion.
+
 One interesting bit that was not mentioned in the video is seen below:
 
 ![image](https://user-images.githubusercontent.com/81909946/129100396-ee6f4b57-e8cc-45ad-9a65-aee6517f2c9b.png)
