@@ -15,38 +15,73 @@ else:
 # Working with attributes
 
 Whenever I need to work with a Python SOP it's often the case I need to either read or write (or both) geometry attributes, be it at the point, primitivite or detail level. Python scripting reference page: https://www.sidefx.com/docs/houdini/hom/hou/Geometry.html
-
-
+Also relevant: https://www.sidefx.com/docs/houdini/hom/pythonsop.html
+Here's a simple example I wrote to quickly remind of of some useful snippets.
 
 ```python
 geo = hou.pwd().geometry()
 
-# Write Detail Attributes
+# First we create some geometry (not essential for detail attributes)
+prim = geo.createPolygon()
+point = geo.createPoint()
+point.setPosition((0,0,0))
+prim.addVertex(point)
+
+# Write Attributes
 # Integer
-intAttrib = 12
-geo.addAttrib(hou.attribType.Global, "intAttrib", intAttrib)
+intAttrib = 1337
+geo.addAttrib(hou.attribType.Global, "intAttrib", intAttrib, create_local_variable=False)
+geo.addAttrib(hou.attribType.Point, "intAttrib", intAttrib, create_local_variable=False)
+geo.addAttrib(hou.attribType.Prim, "intAttrib", intAttrib, create_local_variable=False)
 
 # Float
-floatAttrib = 5.6
-geo.addAttrib(hou.attribType.Global, "floatAttrib", floatAttrib)
+floatAttrib = 97.651
+geo.addAttrib(hou.attribType.Global, "floatAttrib", floatAttrib, create_local_variable=False)
+geo.addAttrib(hou.attribType.Point, "floatAttrib", floatAttrib, create_local_variable=False)
+geo.addAttrib(hou.attribType.Prim, "floatAttrib", floatAttrib, create_local_variable=False)
 
-# String
+# String attributes must be added and subsequently set in two steps (not sure why)
 stringAttrib = "Hello"
-geo.addAttrib(hou.attribType.Global, "stringAttrib", "")
+geo.addAttrib(hou.attribType.Global, "stringAttrib", "", create_local_variable=False)
 geo.setGlobalAttribValue("stringAttrib", stringAttrib)
+geo.addAttrib(hou.attribType.Point, "stringAttrib", "", create_local_variable=False)
+point.setAttribValue("stringAttrib", stringAttrib)
+geo.addAttrib(hou.attribType.Prim, "stringAttrib", "", create_local_variable=False)
+prim.setAttribValue("stringAttrib", stringAttrib)
 
 # Integer Array
 intArrayAttrib = [0,1,2,3]
-geo.addArrayAttrib(hou.attribType.Global, "intArrayAttrib", hou.attribData.Int, 1)
+geo.addArrayAttrib(hou.attribType.Global, "intArrayAttrib", hou.attribData.Int, tuple_size=1)
 geo.setGlobalAttribValue("intArrayAttrib", intArrayAttrib)
+geo.addArrayAttrib(hou.attribType.Point, "intArrayAttrib", hou.attribData.Int, tuple_size=1)
+point.setAttribValue("intArrayAttrib", intArrayAttrib)
+geo.addArrayAttrib(hou.attribType.Prim, "intArrayAttrib", hou.attribData.Int, tuple_size=1)
+prim.setAttribValue("intArrayAttrib", intArrayAttrib)
 
 # Float Array
 floatArrayAttrib = [0.5,2.3,5.7]
-geo.addArrayAttrib(hou.attribType.Global, "floatArrayAttrib", hou.attribData.Float, 1)
+geo.addArrayAttrib(hou.attribType.Global, "floatArrayAttrib", hou.attribData.Float, tuple_size=1)
 geo.setGlobalAttribValue("floatArrayAttrib", floatArrayAttrib)
+geo.addArrayAttrib(hou.attribType.Point, "floatArrayAttrib", hou.attribData.Float, tuple_size=1)
+point.setAttribValue("floatArrayAttrib", floatArrayAttrib)
+geo.addArrayAttrib(hou.attribType.Prim, "floatArrayAttrib", hou.attribData.Float, tuple_size=1)
+prim.setAttribValue("floatArrayAttrib", floatArrayAttrib)
 
 # A Vector type doesn't actually exist. We set it to a 3-dimensional float
 vectorArrayAttrib = [1.0,-0.7,1.6]
-geo.addArrayAttrib(hou.attribType.Global, "vectorArrayAttrib", hou.attribData.Float, 3)
+geo.addArrayAttrib(hou.attribType.Global, "vectorArrayAttrib", hou.attribData.Float, tuple_size=3)
 geo.setGlobalAttribValue("vectorArrayAttrib", vectorArrayAttrib)
+geo.addArrayAttrib(hou.attribType.Point, "vectorArrayAttrib", hou.attribData.Float, tuple_size=3)
+point.setAttribValue("vectorArrayAttrib", vectorArrayAttrib)
+geo.addArrayAttrib(hou.attribType.Prim, "vectorArrayAttrib", hou.attribData.Float, tuple_size=3)
+prim.setAttribValue("vectorArrayAttrib", vectorArrayAttrib)
+
+# String Array
+stringArrayAttrib = ["Hello","World"]
+geo.addArrayAttrib(hou.attribType.Global, "stringArrayAttrib", hou.attribData.String, tuple_size=1)
+geo.setGlobalAttribValue("stringArrayAttrib", stringArrayAttrib)
+geo.addArrayAttrib(hou.attribType.Point, "stringArrayAttrib", hou.attribData.String, tuple_size=1)
+point.setAttribValue("stringArrayAttrib", stringArrayAttrib)
+geo.addArrayAttrib(hou.attribType.Prim, "stringArrayAttrib", hou.attribData.String, tuple_size=1)
+prim.setAttribValue("stringArrayAttrib", stringArrayAttrib)
 ```
