@@ -16,7 +16,7 @@ else:
 
 Whenever I need to work with a Python SOP it's often the case I need to either read or write (or both) geometry attributes, be it at the point, primitivite or detail level. Python scripting reference page: https://www.sidefx.com/docs/houdini/hom/hou/Geometry.html
 Also relevant: https://www.sidefx.com/docs/houdini/hom/pythonsop.html
-Here's a simple example I wrote to quickly remind of of some useful snippets.
+Here's a simple example I wrote to quickly remind me of some useful snippets.
 
 ```python
 geo = hou.pwd().geometry()
