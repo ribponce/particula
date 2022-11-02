@@ -19,9 +19,6 @@ Also relevant: https://www.sidefx.com/docs/houdini/hom/pythonsop.html
 Here's a simple example I wrote to quickly remind of of some useful snippets.
 
 ```python
-node = hou.pwd()
-geo = node.geometry()
-
 geo = hou.pwd().geometry()
 
 """ First we create some geometry (not essential for detail attributes) """
