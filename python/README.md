@@ -19,15 +19,20 @@ Also relevant: https://www.sidefx.com/docs/houdini/hom/pythonsop.html
 Here's a simple example I wrote to quickly remind of of some useful snippets.
 
 ```python
+node = hou.pwd()
+geo = node.geometry()
+
 geo = hou.pwd().geometry()
 
-# First we create some geometry (not essential for detail attributes)
+""" First we create some geometry (not essential for detail attributes) """
 prim = geo.createPolygon()
 point = geo.createPoint()
 point.setPosition((0,0,0))
 prim.addVertex(point)
 
-# Write Attributes
+""" Adding and Writing Attributes is mostly straightforward.
+For the sake of simplicity we're creating attribute with the same name for every attribute type."""
+
 # Integer
 intAttrib = 1337
 geo.addAttrib(hou.attribType.Global, "intAttrib", intAttrib, create_local_variable=False)
@@ -40,7 +45,7 @@ geo.addAttrib(hou.attribType.Global, "floatAttrib", floatAttrib, create_local_va
 geo.addAttrib(hou.attribType.Point, "floatAttrib", floatAttrib, create_local_variable=False)
 geo.addAttrib(hou.attribType.Prim, "floatAttrib", floatAttrib, create_local_variable=False)
 
-# String attributes must be added and subsequently set in two steps (not sure why)
+# String and Array attributes must be added and subsequently set in two steps (not sure why)
 stringAttrib = "Hello"
 geo.addAttrib(hou.attribType.Global, "stringAttrib", "", create_local_variable=False)
 geo.setGlobalAttribValue("stringAttrib", stringAttrib)
@@ -84,4 +89,16 @@ geo.addArrayAttrib(hou.attribType.Point, "stringArrayAttrib", hou.attribData.Str
 point.setAttribValue("stringArrayAttrib", stringArrayAttrib)
 geo.addArrayAttrib(hou.attribType.Prim, "stringArrayAttrib", hou.attribData.String, tuple_size=1)
 prim.setAttribValue("stringArrayAttrib", stringArrayAttrib)
+
+""" Reading Attributes is much less convoluted. We can simply read any attribute directly.
+No need to specify attribute type. Here we're storing them on variables.
+Note we are referencing [point] and [prim] created on the top.
+To get a reference of existing point, for example, we could use the iterPoints() function:
+point = geo.iterPoints()[0]  // Where the [0] specifies point number 0. """
+
+intAttrib = point.attribValue("intAttrib")
+floatAttrib = prim.attribValue("floatAttrib")
+stringAttrib = geo.attribValue("stringAttrib")
+
+# print(intAttrib, floatAttrib, stringAttrib) # Debug
 ```
