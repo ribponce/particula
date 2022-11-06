@@ -480,3 +480,28 @@ At every step, we look up all points on those coordinates and store them inside 
 Take a look at the scene file below for more details on how to accomplish it.
 
 [Download scene file.](https://github.com/ribponce/particula/blob/607c1e7d27b18f404c0cf23a08000ca164207e0d/vex/files/particula_trapped-knight_SHARE.hipnc)
+
+---
+
+# Custom FtoA function (Convert Float to String)
+
+This function exists as HScript, but not in vex. Here's a simple snippet to convert floats to string. Alter the code to get more decimals.
+
+```c#
+string ftoa(float f){
+    // inspired by
+    // https://fsimerey.com/index.php/memo/33-houdini-vex-convert-float-to-string-with-2-decimals
+    string trunc = itoa(int(trunc(f)));
+    int ifrac = int(rint(frac(f)*100));
+    string frac = "00";
+    if (ifrac == 100) {
+        trunc = itoa(int(trunc(f)) +1); 
+    }
+    else {
+        frac = sprintf("%01d", ifrac); // How many decimals?
+    }
+    string s = trunc + "." + frac;
+    return s;
+}
+```
+
