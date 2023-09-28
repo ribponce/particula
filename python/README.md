@@ -104,7 +104,7 @@ stringAttrib = geo.attribValue("stringAttrib")
 
 # Force Cook Callback
 
-Sometimes it's useful to have a button that forces a node deep inside a network to be recooked, such as a File SOP, or a Python SOP which reads from data from disk and are unaware of any external changes.
+Sometimes it's useful to have a button on the upper-level of an HDA that forces a node deep inside a network to be recooked, such as a File SOP, or a Python SOP which reads from data from disk and are unaware of any external changes.
 
 ```python
 # Here we can target a specific node
@@ -113,6 +113,8 @@ hou.node('../PATH/TO/NODE').cook(force=True)
 # Alternatively we can force the current node to recook as well
 hou.node('./').cook(force=True)
 ```
+
+The same code can be used at the end of a Python SOP to trigger other nodes in the network to be recooked, allowing us to create chained actions and complex behaviours very efficiently.
 
 ---
 
