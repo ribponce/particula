@@ -99,3 +99,15 @@ stringAttrib = geo.attribValue("stringAttrib")
 
 # print(intAttrib, floatAttrib, stringAttrib) # Debug
 ```
+
+# Force Cook Callback
+
+Sometimes it's useful to have a button that forces a node deep inside a network to be recooked, such as a File SOP, or a Python SOP which reads from data from disk and are unaware of any external changes.
+
+```python
+# Here we can target a specific node
+hou.node('../PATH/TO/NODE').cook(force=True)
+
+# Alternatively we can force the current node to recook as well
+hou.node('./').cook(force=True)
+```
