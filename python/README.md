@@ -111,3 +111,17 @@ hou.node('../PATH/TO/NODE').cook(force=True)
 # Alternatively we can force the current node to recook as well
 hou.node('./').cook(force=True)
 ```
+
+# Run Python scripts with a button press
+
+Learned this one from Matt Estela, and it's been a life saver. The Python SOP in Houdini behaves like an Attribute Wrangle, and cooks automatically everytime upstream data is changed. Usually that is fine, but in some specific cases you might want end a node tree with some python script, but only execute the code with a button trigger. The steps for that are quite simple:
+1. In a Null SOP, Edit Parameter Interface.
+2. Add a Multi-Line String Parameter with Language set to Python, name it "code".
+3. Add a Button with the following Callback Script:
+
+```python
+exec(kwargs['node'].parm('code').eval())
+```
+
+This will make the Parameter named "code" evaluate when the button is pressed.
+
