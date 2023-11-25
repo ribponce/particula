@@ -1,3 +1,9 @@
+# Painterly Normals
+
+[![Painterly Normals](https://github.com/ribponce/particula/assets/81909946/dc30720f-3beb-46f4-a394-313d8505b482)](https://github.com/ribponce/particula/tree/master/tutorials/painterly_normals)
+
+Let's have a look in Houdini at how to make a procedural painterly normals setup, recently made famous by Cody Dingy.
+
 # Houdini Morse Machine
 
 [![Houdini Morse Machine](https://user-images.githubusercontent.com/81909946/129097179-7f76c2c6-8bca-48db-84e5-d1313b139637.jpg)](https://github.com/ribponce/particula/tree/master/tutorials/houdini_morse_machine)
